@@ -1,0 +1,93 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>October CMS - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+        <link href="{{ 'assets/javascript/slick/slick.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/style.css'|theme }}" rel="stylesheet">
+        {% styles %}
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Scripts -->
+        
+        <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+        <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+        <script src="{{ 'assets/javascript/slick/slick.js' | theme}}"></script>
+        <script type="text/javascript"> 
+          $('.slick-images').slick({
+            centerMode: false,
+            // arrows:true,
+            prevArrow:"<i class=\"fas slick-prev fa-long-arrow-alt-left\"></i>",
+            nextArrow:"<i class=\"fas slick-next fa-long-arrow-alt-right\"></i>",
+            centerPadding: '0',
+            slidesToShow: 4,
+            responsive: [
+             {
+                breakpoint: 991,
+                settings: {
+                  centerMode: true,
+                  arrows: true,
+                  prevArrow:"<i class=\"fas slick-prev fa-long-arrow-alt-left\"></i>",
+                  centerMode: true,
+                  centerPadding: '0',
+                  slidesToShow: 2
+                }
+              },
+              {
+                breakpoint: 768,
+                settings: {
+                  centerMode: true,
+                  arrows: true,
+                  prevArrow:"<i class=\"fas slick-prev fa-long-arrow-alt-left\"></i>",
+                  centerMode: true,
+                  centerPadding: '0',
+                  slidesToShow: 1
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  centerMode: true,
+                  arrows: true,
+                  nextArrow:"<i class=\"fas slick-next fa-long-arrow-alt-right\"></i>",
+                  centerMode: true,
+                  centerPadding: '0',
+                  slidesToShow: 1
+                }
+              }
+            ]
+          });
+        </script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>
